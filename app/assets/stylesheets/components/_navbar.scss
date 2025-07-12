@@ -1,12 +1,26 @@
-.navbar-lewagon {
+.navbar {
+  display: flex;
   justify-content: space-between;
-  background: white;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ccc;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-title {
+  margin: 0;
+  font-size: 1.8rem;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.btn-add-list {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-add-list:hover {
+  background-color: #0056b3;
 }

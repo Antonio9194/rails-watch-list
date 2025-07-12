@@ -1,0 +1,29 @@
+<nav class="navbar">
+  <h1 class="navbar-title">List Details</h1>
+  <%= link_to "Back to list", lists_path, class: "btn-add-list" %>
+</nav>
+<div class="bookmarks-container">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="bookmark-card">
+      <h1><%= bookmark.movie.title %></h1>
+      <p><%= bookmark.movie.overview %></p>
+      <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, width: 210 %>
+      <h5><%= bookmark.movie.rating %></h5>
+    </div>
+  <% end %>
+</div>
+
+<div class="bookmark-form">
+  <h2>Bookmark List</h2>
+  <%= simple_form_for [@list, @bookmark || Bookmark.new] do |f| %>
+    <div>
+      <%= f.association :movie, prompt: "Choose a movie to bookmark" %>
+    </div>
+    <div>
+      <%= f.input :comment, placeholder: "Add a comment..." %>
+    </div>
+    <div>
+      <%= f.button :submit, "Add Bookmark", class: "btn" %>
+    </div>
+  <% end %>
+</div>

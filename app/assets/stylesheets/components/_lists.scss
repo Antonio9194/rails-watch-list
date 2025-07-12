@@ -1,0 +1,41 @@
+.index-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fafafa, #f0f0f0); /* much lighter gradient */
+  border-radius: 15px;
+  margin: 10% auto 0;
+  max-width: 900px; /* container won't take full page width */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* subtle container shadow */
+}
+
+.list-card {
+  border: 1.5px solid #ccc; /* solid but soft border */
+  border-radius: 15px;
+  width: 180px;   /* slightly smaller */
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+  background-color: #fff; /* white card background */
+}
+
+.list-card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* stronger shadow on hover */
+}
+
+.list-link {
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.list-link:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
