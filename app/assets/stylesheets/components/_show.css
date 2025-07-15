@@ -19,7 +19,7 @@
   margin: 0;
 }
 
-.btn-add-list {
+.btn-add-list, .btn-delete-list, .btn-delete-bookmark {
   padding: 0.5rem 1rem;
   background-color: #007bff;
   color: white;
@@ -30,7 +30,7 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-add-list:hover {
+.btn-add-list:hover, .btn-delete-list:hover, .btn-delete-bookmark:hover {
   background-color: #0056b3;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }

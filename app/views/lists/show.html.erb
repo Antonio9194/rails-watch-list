@@ -1,7 +1,12 @@
 <nav class="navbar">
   <h1 class="navbar-title">List Details</h1>
-  <%= link_to "Back to list", lists_path, class: "btn-add-list" %>
+  <div class="buttons">
+    <%= link_to "Delete List", list_path(@list), 
+  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" }, 
+  class: "btn-delete-list" %>
+  <%= link_to "Back to Lists", lists_path, class: "btn-add-list" %>
 </nav>
+  </div>
 <div class="bookmarks-container">
   <% @list.bookmarks.each do |bookmark| %>
     <div class="bookmark-card">
@@ -9,6 +14,9 @@
       <p><%= bookmark.movie.overview %></p>
       <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, width: 210 %>
       <h5><%= bookmark.movie.rating %></h5>
+      <%= link_to "Delete Bookmark", bookmark_path(bookmark), 
+  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this bookmark?" }, 
+  class: "btn-delete-bookmark" %>
     </div>
   <% end %>
 </div>
@@ -18,9 +26,6 @@
   <%= simple_form_for [@list, @bookmark || Bookmark.new] do |f| %>
     <div>
       <%= f.association :movie, prompt: "Choose a movie to bookmark" %>
-    </div>
-    <div>
-      <%= f.input :comment, placeholder: "Add a comment..." %>
     </div>
     <div>
       <%= f.button :submit, "Add Bookmark", class: "btn" %>

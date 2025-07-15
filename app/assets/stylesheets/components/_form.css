@@ -1,0 +1,30 @@
+.simple-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.simple-form input,
+.simple-form textarea,
+.simple-form select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.simple-form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+.simple-form .btn {
+  @extend .btn-add-list; /* or manually copy same styles */
+}
