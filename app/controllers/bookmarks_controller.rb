@@ -18,11 +18,11 @@ def create
 end
 
   def destroy
-  @bookmark = Bookmark.find(params[:id])
-  list = @bookmark.list
-  @bookmark.destroy
-  redirect_to list_path(list), notice: "Bookmark removed!"
-end
+    @bookmark = Bookmark.find(params[:id])
+    list = @bookmark.list
+    @bookmark.destroy
+    redirect_to list_path(list), notice: "Bookmark removed!"
+  end
 
 private 
   def bookmark_params

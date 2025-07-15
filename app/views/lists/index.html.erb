@@ -8,6 +8,9 @@
   <% @lists.each do |list| %>
     <div class="list-card">
       <%= link_to list.name, list_path(list), class: "list-link" %>
+      <% if list.photo.attached? %>
+        <%= image_tag list.photo, class: "list-photo" %>
+      <% end %>
     </div>
   <% end %>
 </div>

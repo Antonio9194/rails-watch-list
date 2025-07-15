@@ -30,6 +30,8 @@ gem 'ostruct'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
+gem 'cloudinary', '~> 1.18.1'
+gem "activestorage-cloudinary-service"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -45,7 +47,7 @@ gem "jbuilder"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem 'cloudinary', '~> 1.16.0'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
