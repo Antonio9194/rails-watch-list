@@ -13,13 +13,13 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
 
+
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
-# Install packages needed to build gems AND JS runtime & tools
+# Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y \
-    build-essential git libpq-dev libvips pkg-config nodejs yarn
+    apt-get install --no-install-recommends -y build-essential git libpq-dev libvips pkg-config
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -34,12 +34,13 @@ COPY . .
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE=dummy_secret_key ./bin/rails assets:precompile
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+
 
 # Final stage for app image
 FROM base
 
-# Install packages needed for deployment (no nodejs/yarn here, keeps image small)
+# Install packages needed for deployment
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl libvips postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
