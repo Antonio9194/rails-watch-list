@@ -4,7 +4,8 @@
   <%= link_to "Back to Lists", lists_path, class: "btn-add-list" %>
 </nav>
 
-<%= simple_form_for @list, html: { class: "simple-form" } do |f| %>
+<%= simple_form_for @list, html: { class: "simple-form", multipart: true } do |f| %>
   <%= f.input :name, label: "List Name" %>
+  <%= f.input :photo, as: :file, label: "Upload Cover Photo" %>
   <%= f.button :submit, "Create List", class: "btn-add-list" %>
 <% end %>
